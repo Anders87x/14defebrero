@@ -1,0 +1,260 @@
+@import url('https://use.fontawesome.com/releases/v5.8.0/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+:root {
+    --background-color: #fff;
+    --font-color: #000;
+    --font-family: 'Amatic SC', cursive;
+    --icon-size: 20em;
+    --icon-color: #ff0000;
+    --title-size: 70px;
+    --title-color: #fff;
+    --text-size: 50px;
+    --text-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url(https://subtlepatterns.com/patterns/noise_lines.png);
+    font-family: var(--font-family);
+    overflow: hidden;
+    color: var(--font-color);
+}
+
+.overlay {
+    background: var(--background-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container {
+    position: relative;
+    margin: 120px auto 0 auto;
+    width: 320px;
+}
+
+.icon {
+    display: block;
+    width: 320px;
+    height: 320px;
+}
+
+.open .icon {
+    animation: open 4s;
+    transform: scale(10);
+}
+
+.icon .title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -95px;
+    margin-top: -73px;
+    z-index: 4;
+    font-size: var(--title-size);
+    font-family: var(--font-family);
+    color: var(--title-color);
+    cursor: pointer;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.open .icon .title {
+    opacity: 0;
+    transition: all 0.3s ease;
+    top: -100px;
+}
+
+.icon::before,
+.icon::after,
+.icon2::before,
+.icon2::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon::before,
+.icon::after,
+.icon2::before,
+.icon2::after {
+    display: block;
+    font-size: var(--icon-size);
+    color: var(--icon-color);
+    content: "\f004";
+    font-family: FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon2::before,
+.icon2::after {
+    color: var(--icon-color);
+}
+
+.icon::before {
+    z-index: 3;
+}
+
+.icon::after {
+    animation: explode 4s infinite;
+    -webkit-animation: explode 4s infinite;
+}
+
+
+.icon2::before {
+    animation: explodeSmall 3s infinite;
+    -webkit-animation: explodeSmall 3s infinite;
+}
+
+.icon2::after {
+    animation: explodeSmall 2s infinite;
+    -webkit-animation: explodeSmall 2s infinite;
+}
+
+
+.text {
+    opacity: 0;
+    position: absolute;
+    top: -100px;
+    width: 100%;
+}
+
+.open .text {
+    top: 0;
+    opacity: 1;
+    animation: show 5s;
+    -webkit-animation: show 5s;
+}
+
+.text .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text h1,
+.text h2,
+.text h3 {
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: normal;
+}
+
+.text h1 {
+    font-size: var(--text-size);
+    color: var(--text-color);
+}
+
+.text h2 {
+    font-size: calc(var(--text-size) * 0.6);
+    color: var(--text-color);
+}
+
+.text h3 {
+    font-size: calc(var(--text-size) * 0.4);
+    color: var(--text-color);
+}
+
+
+@keyframes explode {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes explode {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+@keyframes explodeSmall {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes explodeSmall {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+@keyframes open {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(10);
+    }
+}
+
+@-webkit-keyframes open {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(10);
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        top: -100px;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0;
+        top: -100px;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
